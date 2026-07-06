@@ -34,6 +34,12 @@ jobs:
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          # Manual triggers (workflow_dispatch from the Actions tab, or the
+          # Streamlit "Run a test check now" button, which sends
+          # client_payload.source = "manual") force every profile to be
+          # checked right now, bypassing each profile's mode/daily gating.
+          # Real scheduled runs from cron-job.org are unaffected.
+          FORCE_CHECK: ${{ github.event_name == 'workflow_dispatch' || github.event.client_payload.source == 'manual' }}
         run: python agent/check_sites.py
 
       - name: Save updated snapshots and profile state

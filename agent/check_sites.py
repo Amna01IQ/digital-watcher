@@ -208,24 +208,40 @@ def main():
         print("No profiles yet. Nothing to check.")
         return
 
+    # Manual triggers (the Streamlit "Run a test check now" button, or a
+    # workflow_dispatch run from the Actions tab) force every profile to be
+    # checked immediately, regardless of mode or today's gating - so a demo
+    # always gets a real response instead of "not due yet". Real scheduled
+    # runs (repository_dispatch from cron-job.org) are unaffected.
+    force = os.environ.get("FORCE_CHECK", "false").lower() == "true"
+    if force:
+        print("Manual trigger detected - forcing a check for every profile.")
+
     now_ts = int(time.time())
     profiles_changed = False
 
     for profile in profiles:
         profile_id = profile.get("profile_id", "unknown")
+        naturally_due = is_profile_due(profile)
 
-        if not is_profile_due(profile):
+        if not (naturally_due or force):
             print(f"[{profile_id}] Not due yet - skipping.")
             continue
 
-        print(f"[{profile_id}] Running check...")
+        if naturally_due:
+            print(f"[{profile_id}] Running check...")
+        else:
+            print(f"[{profile_id}] Forced check (manual trigger, not otherwise due yet)...")
+
         try:
             process_profile(profile, now_ts)
         except Exception as exc:
             # One profile's failure shouldn't stop everyone else's checks.
             print(f"[{profile_id}] Failed unexpectedly: {exc}")
 
-        if profile.get("mode", "daily") == "daily":
+        # Only advance the daily gate for a genuinely due scheduled run - a
+        # forced manual/test run must not suppress today's real check.
+        if naturally_due and profile.get("mode", "daily") == "daily":
             today = local_now(profile.get("timezone", "Asia/Amman")).strftime("%Y-%m-%d")
             profile["last_daily_run_date"] = today
             profiles_changed = True

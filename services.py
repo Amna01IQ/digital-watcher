@@ -70,9 +70,15 @@ def save_profiles_to_github(repo, token, branch, profiles_doc, sha):
 
 
 def trigger_workflow_now(repo, token):
-    """Fire a repository_dispatch immediately (used by the 'Run a test check now' button)."""
+    """Fire a repository_dispatch immediately (used by the 'Run a test check now' button).
+
+    The "manual" source flag tells the workflow to force-check every
+    profile right now, bypassing each profile's mode/daily gating."""
     url = f"{GITHUB_API}/repos/{repo}/dispatches"
-    payload = {"event_type": DISPATCH_EVENT_TYPE}
+    payload = {
+        "event_type": DISPATCH_EVENT_TYPE,
+        "client_payload": {"source": "manual"},
+    }
     response = requests.post(
         url, headers=_github_headers(token), json=payload, timeout=20
     )
