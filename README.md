@@ -6,7 +6,7 @@ changes. It was built as a university assignment to demonstrate a complete,
 autonomous **agent loop** — **Sense → Compare → Act** — running entirely on
 free infrastructure, with no paid services and no credit card anywhere.
 
-**Live app:** _add your deployed Streamlit app link here_
+**Live app:** [digital-watcher-q5wcggaymqtyao3zeukpsx.streamlit.app](https://digital-watcher-q5wcggaymqtyao3zeukpsx.streamlit.app)
 
 ---
 
