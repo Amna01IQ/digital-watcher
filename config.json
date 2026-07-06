@@ -1,16 +1,29 @@
 {
   "user": {
-    "name": "",
-    "email": ""
+    "name": "Shahdkishta",
+    "email": "shahdkishta03@gmail.com"
   },
-  "telegram_chat_id": "",
-  "websites": [],
+  "telegram_chat_id": "6298966365",
+  "websites": [
+    {
+      "label": "Instagram",
+      "url": "https://www.instagram.com/bts.bighitofficial?igsh=MTg4YnVxMG1ic2xuaw=="
+    },
+    {
+      "label": "Instagram",
+      "url": "https://www.instagram.com/jujutsukaisen?igsh=MWNzdGlkbzkwcWk3bg=="
+    },
+    {
+      "label": "Instagram",
+      "url": "https://www.instagram.com/mnijungkook?igsh=MTY1a3ZpOW8zazZ2OA=="
+    }
+  ],
   "notifications": {
     "email": true,
     "telegram": true
   },
   "mode": "daily",
-  "daily_time": "08:00",
+  "daily_time": "16:30",
   "timezone": "Asia/Amman",
-  "cronjob_id": null
+  "cronjob_id": 8019448
 }
