@@ -19,7 +19,7 @@
     }
   ],
   "notifications": {
-    "email": false,
+    "email": true,
     "telegram": true
   },
   "mode": "daily",
