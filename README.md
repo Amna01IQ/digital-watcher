@@ -82,16 +82,29 @@ what actually starts the GitHub Actions workflow.
 1. Load `config.json`.
 2. For each website:
    - Download the page and extract its visible text.
-   - If there's no previous snapshot, save one (first run for that site).
-   - Otherwise, compare with the saved snapshot and collect any new/changed lines.
+   - If there's no snapshot history yet, save one and treat it as the first run for that site.
+   - Otherwise, compare the current content against the snapshot closest to
+     **24 hours ago** (falling back to the oldest snapshot available if the
+     site hasn't been monitored for a full 24 hours yet) and collect any
+     new/changed lines.
    - If the site can't be reached, record an error instead of crashing.
+   - Save the current content as a new timestamped snapshot, and delete any
+     snapshots older than 48 hours so the repo stays small.
 3. Decide what to send:
    - First-ever run: a "monitoring started" welcome message.
-   - Anything changed or a new site was added: a message listing what changed.
+   - Anything changed or a new site was added: "Here's what changed in the
+     last 24 hours" followed by a summary of the differences.
    - Nothing changed, but mode is "Daily digest": a short "checked N sites, no changes" message.
    - Nothing changed, mode is "Instant mode": no message at all.
 4. Send the message through every enabled channel (Email, Telegram).
-5. Save updated snapshots and commit them back to the repo.
+5. Commit the updated snapshots back to the repo.
+
+### Snapshot storage
+
+Snapshots are kept per site in `snapshots/<site-hash>/<unix-timestamp>.txt`,
+one file per check, covering at least the last 48 hours. This rolling
+history is what lets every run - daily, instant, or a manual test - always
+compare against "24 hours ago" instead of just "the previous run".
 
 ## Initial setup (for anyone re-deploying this project)
 

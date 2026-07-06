@@ -2,8 +2,14 @@
 Digital Watcher agent.
 
 Sense  -> download each configured website's text.
-Decide -> compare it with the last saved snapshot.
-Act    -> notify the user by Email / Telegram if something changed.
+Decide -> compare it with the snapshot taken closest to 24 hours ago.
+Act    -> notify the user by Email / Telegram with what changed.
+
+Each site keeps a rolling history of snapshots (one per run) under
+snapshots/<site>/<unix-timestamp>.txt, covering at least the last 48
+hours. This lets every run - daily, instant, or manually triggered -
+report "what changed in the last 24 hours" instead of just "what
+changed since the last run".
 
 Run with: python agent/check_sites.py
 (from the repository root, as GitHub Actions does).
@@ -11,6 +17,7 @@ Run with: python agent/check_sites.py
 import hashlib
 import json
 import os
+import time
 from pathlib import Path
 
 from fetcher import fetch_text
@@ -21,6 +28,8 @@ CONFIG_PATH = ROOT / "config.json"
 SNAPSHOTS_DIR = ROOT / "snapshots"
 
 MAX_CHANGED_LINES = 15
+TARGET_AGE_HOURS = 24
+SNAPSHOT_RETENTION_HOURS = 48
 
 
 def load_config():
@@ -28,47 +37,78 @@ def load_config():
         return json.load(f)
 
 
-def snapshot_path(url):
-    # Hash the URL so it's always a safe, unique file name.
+def site_dir(url):
+    # Hash the URL so it's always a safe, unique folder name.
     digest = hashlib.sha1(url.encode("utf-8")).hexdigest()[:16]
-    return SNAPSHOTS_DIR / f"{digest}.txt"
+    path = SNAPSHOTS_DIR / digest
+    path.mkdir(parents=True, exist_ok=True)
+    return path
 
 
-def read_snapshot(path):
-    if not path.exists():
-        return None
-    return path.read_text(encoding="utf-8").splitlines()
+def list_snapshots(directory):
+    """Return (timestamp, path) pairs for this site, oldest first."""
+    snapshots = []
+    for file in directory.glob("*.txt"):
+        try:
+            snapshots.append((int(file.stem), file))
+        except ValueError:
+            continue
+    snapshots.sort(key=lambda pair: pair[0])
+    return snapshots
 
 
-def write_snapshot(path, lines):
-    SNAPSHOTS_DIR.mkdir(exist_ok=True)
-    path.write_text("\n".join(lines), encoding="utf-8")
+def pick_reference_snapshot(snapshots, now_ts):
+    """Pick the snapshot closest to 24h ago. Falls back to the oldest one
+    available if we don't have 24 hours of history yet."""
+    target_ts = now_ts - TARGET_AGE_HOURS * 3600
+    oldest_ts, oldest_path = snapshots[0]
+    if oldest_ts > target_ts:
+        return oldest_path, True  # not enough history yet - fall back to oldest
+    closest = min(snapshots, key=lambda pair: abs(pair[0] - target_ts))
+    return closest[1], False
 
 
-def check_site(site):
+def save_snapshot(directory, now_ts, lines):
+    (directory / f"{now_ts}.txt").write_text("\n".join(lines), encoding="utf-8")
+
+
+def prune_old_snapshots(directory, now_ts):
+    cutoff = now_ts - SNAPSHOT_RETENTION_HOURS * 3600
+    for ts, path in list_snapshots(directory):
+        if ts < cutoff:
+            path.unlink()
+
+
+def check_site(site, now_ts):
     label = site.get("label") or site["url"]
     url = site["url"]
-    path = snapshot_path(url)
-    old_lines = read_snapshot(path)
+    directory = site_dir(url)
+    existing_snapshots = list_snapshots(directory)
 
     try:
         new_lines = fetch_text(url)
     except Exception as exc:
         return {"label": label, "url": url, "status": "error", "error": str(exc)}
 
-    if old_lines is None:
-        write_snapshot(path, new_lines)
+    if not existing_snapshots:
+        save_snapshot(directory, now_ts, new_lines)
         return {"label": label, "url": url, "status": "new"}
 
-    added = [line for line in new_lines if line not in old_lines]
+    reference_path, is_fallback = pick_reference_snapshot(existing_snapshots, now_ts)
+    reference_lines = reference_path.read_text(encoding="utf-8").splitlines()
+
+    save_snapshot(directory, now_ts, new_lines)
+    prune_old_snapshots(directory, now_ts)
+
+    added = [line for line in new_lines if line not in reference_lines]
     if added:
-        write_snapshot(path, new_lines)
         return {
             "label": label,
             "url": url,
             "status": "changed",
             "changed_lines": added[:MAX_CHANGED_LINES],
             "changed_count": len(added),
+            "fallback": is_fallback,
         }
 
     return {"label": label, "url": url, "status": "unchanged"}
@@ -96,11 +136,15 @@ def build_message(config, results):
     if changed or new_sites:
         lines = []
         if changed:
-            lines.append(f"Digital Watcher detected changes on {len(changed)} site(s):")
+            lines.append(f"Here's what changed in the last 24 hours on {len(changed)} site(s):")
             lines.append("")
             for r in changed:
                 lines.append(f"=== {r['label']} ===")
                 lines.append(r["url"])
+                if r.get("fallback"):
+                    lines.append(
+                        "(showing changes since monitoring started - not yet 24 hours of history)"
+                    )
                 lines.append(
                     f"{r['changed_count']} new/changed line(s), showing up to {MAX_CHANGED_LINES}:"
                 )
@@ -117,10 +161,10 @@ def build_message(config, results):
             for r in errors:
                 lines.append(f"- {r['label']} ({r['url']}): {r['error']}")
         total = len(changed) + len(new_sites)
-        return f"Digital Watcher: {total} update(s)", "\n".join(lines)
+        return f"Digital Watcher: {total} update(s) in the last 24 hours", "\n".join(lines)
 
     if mode == "daily":
-        lines = [f"Checked {len(results)} site(s) - no changes today."]
+        lines = [f"Checked {len(results)} site(s) - no changes in the last 24 hours."]
         if errors:
             lines.append("")
             lines.append("Could not reach these sites:")
@@ -140,7 +184,8 @@ def main():
         print("No websites configured yet. Nothing to check.")
         return
 
-    results = [check_site(site) for site in websites]
+    now_ts = int(time.time())
+    results = [check_site(site, now_ts) for site in websites]
     for r in results:
         print(r)
 
