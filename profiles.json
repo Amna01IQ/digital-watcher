@@ -1,103 +1,103 @@
 {
-    "cronjob_id":  8019448,
-    "profiles":  [
-                     {
-                         "profile_id":  "LVNZ5D",
-                         "user":  {
-                                      "name":  "Shahdkishta",
-                                      "email":  "shahdkishta03@gmail.com"
-                                  },
-                         "telegram_chat_id":  "6298966365",
-                         "websites":  [
-                                          {
-                                              "label":  "Instagram",
-                                              "url":  "https://www.instagram.com/bts.bighitofficial?igsh=MTg4YnVxMG1ic2xuaw=="
-                                          },
-                                          {
-                                              "label":  "Instagram",
-                                              "url":  "https://www.instagram.com/jujutsukaisen?igsh=MWNzdGlkbzkwcWk3bg=="
-                                          },
-                                          {
-                                              "label":  "Instagram",
-                                              "url":  "https://www.instagram.com/mnijungkook?igsh=MTY1a3ZpOW8zazZ2OA=="
-                                          },
-                                          {
-                                              "label":  "Wikipedia Current Events",
-                                              "url":  "https://en.wikipedia.org/wiki/Portal:Current_events"
-                                          }
-                                      ],
-                         "notifications":  {
-                                               "email":  true,
-                                               "telegram":  true
-                                           },
-                         "mode":  "daily",
-                         "daily_time":  "16:30",
-                         "timezone":  "Asia/Amman",
-                         "last_daily_run_date":  null
-                     },
-                     {
-                         "profile_id":  "J1Y4N2",
-                         "user":  {
-                                      "name":  "amna tahir",
-                                      "email":  "a_muna_a@yahoo.com"
-                                  },
-                         "telegram_chat_id":  "847468659",
-                         "websites":  [
-                                          {
-                                              "label":  "ويكابيديا",
-                                              "url":  "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9_%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D8%A9"
-                                          },
-                                          {
-                                              "label":  "طقس العرب",
-                                              "url":  "https://www.arabiaweather.com/"
-                                          },
-                                          {
-                                              "label":  "archdaily",
-                                              "url":  "https://www.archdaily.com/"
-                                          },
-                                          {
-                                              "label":  "الجزيرة",
-                                              "url":  "https://www.aljazeera.net/"
-                                          }
-                                      ],
-                         "notifications":  {
-                                               "email":  true,
-                                               "telegram":  true
-                                           },
-                         "mode":  "daily",
-                         "daily_time":  "21:45",
-                         "timezone":  "Asia/Amman",
-                         "last_daily_run_date":  "2026-07-06"
-                     },
-                     {
-                         "profile_id":  "6XRCXY",
-                         "user":  {
-                                      "name":  "Samar",
-                                      "email":  "amnataher2001@gmail.com"
-                                  },
-                         "telegram_chat_id":  "5565958043",
-                         "websites":  [
-                                          {
-                                              "label":  "ويكا",
-                                              "url":  "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9_%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D8%A9"
-                                          },
-                                          {
-                                              "label":  "طقس العرب",
-                                              "url":  "https://www.arabiaweather.com/"
-                                          },
-                                          {
-                                              "label":  "ارجي",
-                                              "url":  "https://www.archdaily.com/"
-                                          }
-                                      ],
-                         "notifications":  {
-                                               "email":  true,
-                                               "telegram":  true
-                                           },
-                         "mode":  "daily",
-                         "daily_time":  "17:30",
-                         "timezone":  "Asia/Amman",
-                         "last_daily_run_date":  "2026-07-06"
-                     }
-                 ]
+  "cronjob_id": 8019448,
+  "profiles": [
+    {
+      "profile_id": "LVNZ5D",
+      "user": {
+        "name": "Shahdkishta",
+        "email": "shahdkishta03@gmail.com"
+      },
+      "telegram_chat_id": "6298966365",
+      "websites": [
+        {
+          "label": "Instagram",
+          "url": "https://www.instagram.com/bts.bighitofficial?igsh=MTg4YnVxMG1ic2xuaw=="
+        },
+        {
+          "label": "Instagram",
+          "url": "https://www.instagram.com/jujutsukaisen?igsh=MWNzdGlkbzkwcWk3bg=="
+        },
+        {
+          "label": "Instagram",
+          "url": "https://www.instagram.com/mnijungkook?igsh=MTY1a3ZpOW8zazZ2OA=="
+        },
+        {
+          "label": "Wikipedia Current Events",
+          "url": "https://en.wikipedia.org/wiki/Portal:Current_events"
+        }
+      ],
+      "notifications": {
+        "email": true,
+        "telegram": true
+      },
+      "mode": "daily",
+      "daily_time": "16:30",
+      "timezone": "Asia/Amman",
+      "last_daily_run_date": "2026-07-06"
+    },
+    {
+      "profile_id": "J1Y4N2",
+      "user": {
+        "name": "amna tahir",
+        "email": "a_muna_a@yahoo.com"
+      },
+      "telegram_chat_id": "847468659",
+      "websites": [
+        {
+          "label": "\u0648\u064a\u0643\u0627\u0628\u064a\u062f\u064a\u0627",
+          "url": "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9_%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D8%A9"
+        },
+        {
+          "label": "\u0637\u0642\u0633 \u0627\u0644\u0639\u0631\u0628",
+          "url": "https://www.arabiaweather.com/"
+        },
+        {
+          "label": "archdaily",
+          "url": "https://www.archdaily.com/"
+        },
+        {
+          "label": "\u0627\u0644\u062c\u0632\u064a\u0631\u0629",
+          "url": "https://www.aljazeera.net/"
+        }
+      ],
+      "notifications": {
+        "email": true,
+        "telegram": true
+      },
+      "mode": "daily",
+      "daily_time": "21:45",
+      "timezone": "Asia/Amman",
+      "last_daily_run_date": "2026-07-06"
+    },
+    {
+      "profile_id": "6XRCXY",
+      "user": {
+        "name": "Samar",
+        "email": "amnataher2001@gmail.com"
+      },
+      "telegram_chat_id": "5565958043",
+      "websites": [
+        {
+          "label": "\u0648\u064a\u0643\u0627",
+          "url": "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9_%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D8%A9"
+        },
+        {
+          "label": "\u0637\u0642\u0633 \u0627\u0644\u0639\u0631\u0628",
+          "url": "https://www.arabiaweather.com/"
+        },
+        {
+          "label": "\u0627\u0631\u062c\u064a",
+          "url": "https://www.archdaily.com/"
+        }
+      ],
+      "notifications": {
+        "email": true,
+        "telegram": true
+      },
+      "mode": "daily",
+      "daily_time": "17:30",
+      "timezone": "Asia/Amman",
+      "last_daily_run_date": "2026-07-06"
+    }
+  ]
 }
