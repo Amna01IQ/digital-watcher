@@ -1,8 +1,12 @@
 """Send notifications by Email (Gmail SMTP) and Telegram (Bot API)."""
 import smtplib
+import time
 from email.mime.text import MIMEText
 
 import requests
+
+EMAIL_ATTEMPTS = 3
+EMAIL_RETRY_DELAY_SECONDS = 5
 
 
 def send_email(subject, body, to_address, gmail_address, gmail_app_password):
@@ -14,17 +18,24 @@ def send_email(subject, body, to_address, gmail_address, gmail_app_password):
     msg["From"] = gmail_address
     msg["To"] = to_address
 
-    try:
-        # STARTTLS on 587 rather than implicit SSL on 465: more reliable from
-        # GitHub Actions runners, where 465 connections have been observed to
-        # drop mid-handshake.
-        with smtplib.SMTP("smtp.gmail.com", 587, timeout=30) as server:
-            server.starttls()
-            server.login(gmail_address, gmail_app_password)
-            server.sendmail(gmail_address, [to_address], msg.as_string())
-        return True, "Email sent."
-    except Exception as exc:
-        return False, f"Email failed: {exc}"
+    last_error = None
+    for attempt in range(1, EMAIL_ATTEMPTS + 1):
+        try:
+            # STARTTLS on 587 rather than implicit SSL on 465: Gmail's
+            # anti-abuse systems have been observed to silently stall
+            # connections from cloud/CI IP ranges (like GitHub Actions) on
+            # both ports, so this is retried a few times before giving up.
+            with smtplib.SMTP("smtp.gmail.com", 587, timeout=30) as server:
+                server.starttls()
+                server.login(gmail_address, gmail_app_password)
+                server.sendmail(gmail_address, [to_address], msg.as_string())
+            return True, "Email sent."
+        except Exception as exc:
+            last_error = exc
+            if attempt < EMAIL_ATTEMPTS:
+                time.sleep(EMAIL_RETRY_DELAY_SECONDS)
+
+    return False, f"Email failed after {EMAIL_ATTEMPTS} attempts: {last_error}"
 
 
 def send_telegram(text, chat_id, bot_token):
