@@ -1,9 +1,13 @@
 """
 Helpers for talking to two external APIs:
 
-1. GitHub Contents API   - read/write config.json in the project's repo.
-2. cron-job.org REST API - keep the external scheduler in sync with the
-   mode/time the user picked in the Streamlit form.
+1. GitHub Contents API   - read/write profiles.json in the project's repo.
+2. cron-job.org REST API - keep the shared external scheduler in sync.
+
+profiles.json holds every user's settings plus the one shared
+cron-job.org job id: {"cronjob_id": ..., "profiles": [...]}. Every
+profile is checked on the same schedule (every 15 minutes); the agent
+decides per-profile whether a check is actually due (see agent/check_sites.py).
 
 Keeping these calls in one place makes streamlit_app.py easier to read.
 """
@@ -15,10 +19,11 @@ import requests
 GITHUB_API = "https://api.github.com"
 CRONJOB_API = "https://api.cron-job.org"
 DISPATCH_EVENT_TYPE = "digital-watcher-check"
+PROFILES_FILE_PATH = "profiles.json"
 
 
 # ---------------------------------------------------------------------------
-# GitHub: read/write config.json
+# GitHub: read/write profiles.json
 # ---------------------------------------------------------------------------
 
 def _github_headers(token):
@@ -29,28 +34,29 @@ def _github_headers(token):
     }
 
 
-def load_config_from_github(repo, token, branch):
-    """Return (config_dict, sha). config_dict is None if the file doesn't exist yet."""
-    url = f"{GITHUB_API}/repos/{repo}/contents/config.json"
+def load_profiles_from_github(repo, token, branch):
+    """Return (profiles_doc, sha). profiles_doc is {"cronjob_id": None, "profiles": []}
+    if the file doesn't exist yet."""
+    url = f"{GITHUB_API}/repos/{repo}/contents/{PROFILES_FILE_PATH}"
     response = requests.get(
         url, headers=_github_headers(token), params={"ref": branch}, timeout=20
     )
     if response.status_code == 404:
-        return None, None
+        return {"cronjob_id": None, "profiles": []}, None
     response.raise_for_status()
     data = response.json()
     content = base64.b64decode(data["content"]).decode("utf-8")
     return json.loads(content), data["sha"]
 
 
-def save_config_to_github(repo, token, branch, config, sha):
-    """Create or update config.json in the repo. Returns the new file sha."""
-    url = f"{GITHUB_API}/repos/{repo}/contents/config.json"
+def save_profiles_to_github(repo, token, branch, profiles_doc, sha):
+    """Create or update profiles.json in the repo. Returns the new file sha."""
+    url = f"{GITHUB_API}/repos/{repo}/contents/{PROFILES_FILE_PATH}"
     content_b64 = base64.b64encode(
-        json.dumps(config, indent=2).encode("utf-8")
+        json.dumps(profiles_doc, indent=2).encode("utf-8")
     ).decode("utf-8")
     payload = {
-        "message": "Update Digital Watcher settings",
+        "message": "Update Digital Watcher profiles",
         "content": content_b64,
         "branch": branch,
     }
@@ -74,7 +80,7 @@ def trigger_workflow_now(repo, token):
 
 
 # ---------------------------------------------------------------------------
-# cron-job.org: keep the schedule in sync with the user's chosen mode/time
+# cron-job.org: one shared job, fired every 15 minutes for every profile
 # ---------------------------------------------------------------------------
 
 def _cronjob_headers(api_key):
@@ -84,37 +90,23 @@ def _cronjob_headers(api_key):
     }
 
 
-def _build_schedule(mode, daily_time, timezone):
-    if mode == "instant":
-        return {
-            "timezone": timezone,
-            "hours": [-1],
-            "minutes": [0, 15, 30, 45],
-            "mdays": [-1],
-            "months": [-1],
-            "wdays": [-1],
-        }
-    hour, minute = (int(part) for part in daily_time.split(":"))
-    return {
-        "timezone": timezone,
-        "hours": [hour],
-        "minutes": [minute],
-        "mdays": [-1],
-        "months": [-1],
-        "wdays": [-1],
-    }
-
-
-def _build_job_payload(mode, daily_time, timezone, repo, github_token):
+def _build_job_payload(repo, github_token):
     dispatch_url = f"{GITHUB_API}/repos/{repo}/dispatches"
     return {
         "job": {
             "url": dispatch_url,
             "enabled": True,
-            "title": "Digital Watcher",
+            "title": "Digital Watcher (shared, every 15 min)",
             "saveResponses": False,
             "requestMethod": 1,  # POST
-            "schedule": _build_schedule(mode, daily_time, timezone),
+            "schedule": {
+                "timezone": "Asia/Amman",
+                "hours": [-1],
+                "minutes": [0, 15, 30, 45],
+                "mdays": [-1],
+                "months": [-1],
+                "wdays": [-1],
+            },
             "extendedData": {
                 "headers": {
                     "Authorization": f"Bearer {github_token}",
@@ -128,9 +120,10 @@ def _build_job_payload(mode, daily_time, timezone, repo, github_token):
     }
 
 
-def upsert_cronjob(api_key, job_id, mode, daily_time, timezone, repo, github_token):
-    """Create the cron-job.org job if needed, otherwise update the existing one in place."""
-    payload = _build_job_payload(mode, daily_time, timezone, repo, github_token)
+def ensure_shared_cronjob(api_key, job_id, repo, github_token):
+    """Create the one shared cron-job.org job if needed, otherwise make sure
+    the existing one still points at the right schedule/URL."""
+    payload = _build_job_payload(repo, github_token)
 
     if job_id:
         url = f"{CRONJOB_API}/jobs/{job_id}"
