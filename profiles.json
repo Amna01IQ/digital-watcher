@@ -34,6 +34,40 @@
       "daily_time": "16:30",
       "timezone": "Asia/Amman",
       "last_daily_run_date": "2026-07-06"
+    },
+    {
+      "profile_id": "J1Y4N2",
+      "user": {
+        "name": "amna tahir",
+        "email": "a_muna_a@yahoo.com"
+      },
+      "telegram_chat_id": "847468659",
+      "websites": [
+        {
+          "label": "\u0648\u064a\u0643\u0627\u0628\u064a\u062f\u064a\u0627",
+          "url": "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9_%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D8%A9"
+        },
+        {
+          "label": "\u0637\u0642\u0633 \u0627\u0644\u0639\u0631\u0628",
+          "url": "https://www.arabiaweather.com/"
+        },
+        {
+          "label": "archdaily",
+          "url": "https://www.archdaily.com/"
+        },
+        {
+          "label": "\u0627\u0644\u062c\u0632\u064a\u0631\u0629",
+          "url": "https://www.aljazeera.net/"
+        }
+      ],
+      "notifications": {
+        "email": true,
+        "telegram": true
+      },
+      "mode": "daily",
+      "daily_time": "08:00",
+      "timezone": "Asia/Amman",
+      "last_daily_run_date": null
     }
   ]
 }
