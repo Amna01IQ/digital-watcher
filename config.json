@@ -1,29 +1,33 @@
 {
-  "user": {
-    "name": "Shahdkishta",
-    "email": "shahdkishta03@gmail.com"
-  },
-  "telegram_chat_id": "6298966365",
-  "websites": [
-    {
-      "label": "Instagram",
-      "url": "https://www.instagram.com/bts.bighitofficial?igsh=MTg4YnVxMG1ic2xuaw=="
-    },
-    {
-      "label": "Instagram",
-      "url": "https://www.instagram.com/jujutsukaisen?igsh=MWNzdGlkbzkwcWk3bg=="
-    },
-    {
-      "label": "Instagram",
-      "url": "https://www.instagram.com/mnijungkook?igsh=MTY1a3ZpOW8zazZ2OA=="
-    }
-  ],
-  "notifications": {
-    "email": true,
-    "telegram": true
-  },
-  "mode": "daily",
-  "daily_time": "16:30",
-  "timezone": "Asia/Amman",
-  "cronjob_id": 8019448
+    "user":  {
+                 "name":  "Shahdkishta",
+                 "email":  "shahdkishta03@gmail.com"
+             },
+    "telegram_chat_id":  "6298966365",
+    "websites":  [
+                     {
+                         "label":  "Instagram",
+                         "url":  "https://www.instagram.com/bts.bighitofficial?igsh=MTg4YnVxMG1ic2xuaw=="
+                     },
+                     {
+                         "label":  "Instagram",
+                         "url":  "https://www.instagram.com/jujutsukaisen?igsh=MWNzdGlkbzkwcWk3bg=="
+                     },
+                     {
+                         "label":  "Instagram",
+                         "url":  "https://www.instagram.com/mnijungkook?igsh=MTY1a3ZpOW8zazZ2OA=="
+                     },
+                     {
+                         "label":  "Wikipedia Current Events",
+                         "url":  "https://en.wikipedia.org/wiki/Portal:Current_events"
+                     }
+                 ],
+    "notifications":  {
+                          "email":  true,
+                          "telegram":  true
+                      },
+    "mode":  "daily",
+    "daily_time":  "16:30",
+    "timezone":  "Asia/Amman",
+    "cronjob_id":  8019448
 }
