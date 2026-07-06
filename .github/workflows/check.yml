@@ -1,0 +1,49 @@
+name: Digital Watcher - Check Websites
+
+# This workflow is triggered ONLY from the outside:
+#  - repository_dispatch: sent by cron-job.org at the exact scheduled time
+#  - workflow_dispatch: lets you run it manually from the Actions tab
+# There is no internal "schedule:" cron here on purpose, because GitHub's
+# built-in cron can be several minutes late - cron-job.org is used instead
+# for minute-accurate timing.
+on:
+  repository_dispatch:
+    types: [digital-watcher-check]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r agent/requirements.txt
+
+      - name: Run Digital Watcher agent
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: python agent/check_sites.py
+
+      - name: Save updated snapshots
+        run: |
+          git config user.name "digital-watcher-bot"
+          git config user.email "actions@github.com"
+          git add snapshots
+          if git diff --cached --quiet; then
+            echo "No snapshot changes to commit."
+          else
+            git commit -m "Update website snapshots [skip ci]"
+            git push
+          fi

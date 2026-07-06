@@ -1,0 +1,16 @@
+{
+  "user": {
+    "name": "",
+    "email": ""
+  },
+  "telegram_chat_id": "",
+  "websites": [],
+  "notifications": {
+    "email": true,
+    "telegram": true
+  },
+  "mode": "daily",
+  "daily_time": "08:00",
+  "timezone": "Asia/Amman",
+  "cronjob_id": null
+}
