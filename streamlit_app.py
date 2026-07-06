@@ -53,6 +53,40 @@ st.write(
     "last time, and **acts** by notifying you the moment something changes."
 )
 
+
+def passcode_gate():
+    """Require a shared passcode before showing or editing any settings.
+
+    This app's link is public (needed for free Streamlit Community Cloud
+    hosting), so without this gate anyone who finds the URL could read or
+    overwrite another person's contact details and monitored sites.
+    """
+    correct_passcode = get_secret("APP_PASSCODE")
+    if not correct_passcode:
+        st.warning(
+            "No APP_PASSCODE secret is set, so this setup page is currently "
+            "open to anyone with the link. Add an APP_PASSCODE secret to "
+            "protect it (see .streamlit/secrets.toml.example)."
+        )
+        return True
+
+    if st.session_state.get("passcode_ok"):
+        return True
+
+    st.info("This setup page is protected. Enter the access passcode to continue.")
+    entered = st.text_input("Access passcode", type="password")
+    if st.button("Unlock"):
+        if entered == correct_passcode:
+            st.session_state.passcode_ok = True
+            st.rerun()
+        else:
+            st.error("Incorrect passcode.")
+    return False
+
+
+if not passcode_gate():
+    st.stop()
+
 missing_secrets = [
     name
     for name in ["GH_TOKEN", "GITHUB_REPO", "CRONJOB_API_KEY"]

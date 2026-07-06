@@ -112,13 +112,20 @@ See the step-by-step guide below. In short, you will need:
 
 1. A GitHub account and a **public** repository containing this project (public = free Actions minutes).
 2. GitHub **repository secrets**: `GMAIL_ADDRESS`, `GMAIL_APP_PASSWORD`, `TELEGRAM_BOT_TOKEN`.
-3. A [Streamlit Community Cloud](https://streamlit.io/cloud) account to deploy `streamlit_app.py`, with **app secrets**: `GH_TOKEN`, `GITHUB_REPO`, `GITHUB_BRANCH`, `CRONJOB_API_KEY` (see `.streamlit/secrets.toml.example`).
+3. A [Streamlit Community Cloud](https://streamlit.io/cloud) account to deploy `streamlit_app.py`, with **app secrets**: `GH_TOKEN`, `GITHUB_REPO`, `GITHUB_BRANCH`, `CRONJOB_API_KEY`, `APP_PASSCODE` (see `.streamlit/secrets.toml.example`).
 4. A free [cron-job.org](https://cron-job.org) account and API key.
 5. A Telegram bot (via [@BotFather](https://t.me/BotFather)) if you want Telegram notifications.
 
 Once deployed, open the Streamlit app link, fill in the form, and click
 **Save settings**. That's it — the schedule and the agent are now fully
 automatic.
+
+### Note on the public app link
+
+The Streamlit app URL is public (required for free hosting), so
+`streamlit_app.py` gates the whole setup page behind a shared passcode
+(the `APP_PASSCODE` secret). Without it set, anyone with the link could
+view or overwrite your contact details and monitored sites.
 
 ## Project structure
 
