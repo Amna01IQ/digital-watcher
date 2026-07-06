@@ -1,33 +1,37 @@
 {
-    "user":  {
-                 "name":  "Shahdkishta",
-                 "email":  "shahdkishta03@gmail.com"
-             },
-    "telegram_chat_id":  "6298966365",
-    "websites":  [
-                     {
-                         "label":  "Instagram",
-                         "url":  "https://www.instagram.com/bts.bighitofficial?igsh=MTg4YnVxMG1ic2xuaw=="
-                     },
-                     {
-                         "label":  "Instagram",
-                         "url":  "https://www.instagram.com/jujutsukaisen?igsh=MWNzdGlkbzkwcWk3bg=="
-                     },
-                     {
-                         "label":  "Instagram",
-                         "url":  "https://www.instagram.com/mnijungkook?igsh=MTY1a3ZpOW8zazZ2OA=="
-                     },
-                     {
-                         "label":  "Wikipedia Current Events",
-                         "url":  "https://en.wikipedia.org/wiki/Portal:Current_events"
-                     }
-                 ],
-    "notifications":  {
-                          "email":  true,
-                          "telegram":  true
-                      },
-    "mode":  "daily",
-    "daily_time":  "16:30",
-    "timezone":  "Asia/Amman",
-    "cronjob_id":  8019448
+  "user": {
+    "name": "amna tahir",
+    "email": "a_muna_a@yahoo.com"
+  },
+  "telegram_chat_id": "847468659",
+  "websites": [
+    {
+      "label": "\u0645\u0646\u062d",
+      "url": "https://grabscholarship.com/"
+    },
+    {
+      "label": "\u0644\u062c\u0632\u064a\u0631\u0629 \u0646\u062a",
+      "url": "https://www.aljazeera.net/"
+    },
+    {
+      "label": "\u0633\u0648\u0642 \u062d\u0631\u0629",
+      "url": "https://jo.opensooq.com/ar/%D8%AF%D8%B1%D8%A7%D8%AC%D8%A7%D8%AA-%D9%86%D8%A7%D8%B1%D9%8A%D8%A9/%D8%AF%D8%B1%D8%A7%D8%AC%D8%A7%D8%AA"
+    },
+    {
+      "label": "\u0648\u064a\u0643\u0627\u0628\u064a\u062f\u064a\u0627",
+      "url": "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9_%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D8%A9"
+    },
+    {
+      "label": "\u0637\u0642\u0633",
+      "url": "https://www.arabiaweather.com/"
+    }
+  ],
+  "notifications": {
+    "email": true,
+    "telegram": true
+  },
+  "mode": "daily",
+  "daily_time": "17:30",
+  "timezone": "Asia/Amman",
+  "cronjob_id": 8019448
 }
