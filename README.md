@@ -133,12 +133,13 @@ per person.
    - If the site can't be reached, record an error instead of crashing.
    - Save the current content as a new timestamped snapshot, and delete
      any snapshots older than 48 hours so the repo stays small.
-4. Decide what to send *to that profile*:
+4. Decide what to send *to that profile* — a notification is always sent
+   for every due check, so the user always gets confirmation the agent ran:
    - First-ever run for that profile: a "monitoring started" welcome message.
    - Anything changed or a new site was added: "Here's what changed in the
      last 24 hours" followed by a summary of the differences.
-   - Nothing changed, but mode is "Daily digest": a short "checked N sites, no changes" message.
-   - Nothing changed, mode is "Instant mode": no message at all.
+   - Nothing changed: a short "checked N site(s) - no changes detected
+     this time" confirmation message.
 5. Send the message through that profile's enabled channels (Email,
    Telegram), using its own email address / Telegram Chat ID (**Act**).
 6. Commit the updated snapshots and any updated `last_daily_run_date`

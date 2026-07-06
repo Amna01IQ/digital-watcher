@@ -32,11 +32,13 @@ def _esc(text):
 
 
 def build_notification(config, results):
-    """Return (subject, plain_body, html_body), or None if nothing should be sent."""
+    """Return (subject, plain_body, html_body) for this check.
+
+    A notification is always sent, even when nothing changed, so the user
+    has confirmation the agent actually ran."""
     changed = [r for r in results if r["status"] == "changed"]
     new_sites = [r for r in results if r["status"] == "new"]
     errors = [r for r in results if r["status"] == "error"]
-    mode = config.get("mode", "daily")
     date = _local_date(config)
     user_name = config.get("user", {}).get("name", "").strip() or "there"
 
@@ -64,15 +66,11 @@ def build_notification(config, results):
         rendered_html = _render_html(user_name, intro, changes=changed, new_sites=new_sites, errors=errors)
         return subject, plain, rendered_html
 
-    if mode == "daily":
-        subject = f"Digital Watcher: daily check for {date} - no changes"
-        intro = f"Checked {len(results)} site(s) - nothing changed in the last 24 hours."
-        plain = _render_plain(intro, errors=errors)
-        rendered_html = _render_html(user_name, intro, errors=errors)
-        return subject, plain, rendered_html
-
-    # Instant mode, nothing changed: stay quiet.
-    return None
+    subject = f"Digital Watcher: checked {len(results)} site(s) - no changes - {date}"
+    intro = f"Digital Watcher checked your {len(results)} site(s) - no changes detected this time."
+    plain = _render_plain(intro, errors=errors)
+    rendered_html = _render_html(user_name, intro, errors=errors)
+    return subject, plain, rendered_html
 
 
 def _render_plain(intro, changes=None, new_sites=None, listing=None, errors=None):
