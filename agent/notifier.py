@@ -1,7 +1,9 @@
 """Send notifications by Email (Gmail SMTP) and Telegram (Bot API)."""
 import smtplib
 import time
+from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.utils import formataddr
 
 import requests
 
@@ -9,14 +11,19 @@ EMAIL_ATTEMPTS = 3
 EMAIL_RETRY_DELAY_SECONDS = 5
 
 
-def send_email(subject, body, to_address, gmail_address, gmail_app_password):
+def send_email(subject, plain_body, html_body, to_address, gmail_address, gmail_app_password):
     if not (gmail_address and gmail_app_password and to_address):
         return False, "Email not sent: missing address or credentials."
 
-    msg = MIMEText(body)
+    # multipart/alternative with both a plain-text and an HTML part: mail
+    # clients pick whichever they support, and having a real plain-text
+    # fallback (rather than HTML-only) is a standard deliverability practice.
+    msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
-    msg["From"] = gmail_address
+    msg["From"] = formataddr(("Digital Watcher", gmail_address))
     msg["To"] = to_address
+    msg.attach(MIMEText(plain_body, "plain", "utf-8"))
+    msg.attach(MIMEText(html_body, "html", "utf-8"))
 
     last_error = None
     for attempt in range(1, EMAIL_ATTEMPTS + 1):

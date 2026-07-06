@@ -21,13 +21,13 @@ import time
 from pathlib import Path
 
 from fetcher import fetch_text
+from messages import MAX_CHANGED_LINES, build_notification
 from notifier import send_email, send_telegram
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG_PATH = ROOT / "config.json"
 SNAPSHOTS_DIR = ROOT / "snapshots"
 
-MAX_CHANGED_LINES = 15
 TARGET_AGE_HOURS = 24
 SNAPSHOT_RETENTION_HOURS = 48
 
@@ -114,68 +114,6 @@ def check_site(site, now_ts):
     return {"label": label, "url": url, "status": "unchanged"}
 
 
-def build_message(config, results):
-    """Decide whether a notification is needed, and build its subject/body."""
-    changed = [r for r in results if r["status"] == "changed"]
-    new_sites = [r for r in results if r["status"] == "new"]
-    errors = [r for r in results if r["status"] == "error"]
-    mode = config.get("mode", "daily")
-
-    # Every site is brand new -> this is the very first check ever.
-    if new_sites and len(new_sites) == len(results):
-        lines = ["Digital Watcher is now monitoring your websites.", ""]
-        for r in new_sites:
-            lines.append(f"- {r['label']} ({r['url']})")
-        if errors:
-            lines.append("")
-            lines.append("Could not reach these sites (will retry next check):")
-            for r in errors:
-                lines.append(f"- {r['label']} ({r['url']}): {r['error']}")
-        return "Digital Watcher: monitoring started", "\n".join(lines)
-
-    if changed or new_sites:
-        lines = []
-        if changed:
-            lines.append(f"Here's what changed in the last 24 hours on {len(changed)} site(s):")
-            lines.append("")
-            for r in changed:
-                lines.append(f"=== {r['label']} ===")
-                lines.append(r["url"])
-                if r.get("fallback"):
-                    lines.append(
-                        "(showing changes since monitoring started - not yet 24 hours of history)"
-                    )
-                lines.append(
-                    f"{r['changed_count']} new/changed line(s), showing up to {MAX_CHANGED_LINES}:"
-                )
-                for line in r["changed_lines"]:
-                    lines.append(f"  + {line}")
-                lines.append("")
-        if new_sites:
-            lines.append("Newly added and now being monitored:")
-            for r in new_sites:
-                lines.append(f"- {r['label']} ({r['url']})")
-            lines.append("")
-        if errors:
-            lines.append("Could not reach these sites:")
-            for r in errors:
-                lines.append(f"- {r['label']} ({r['url']}): {r['error']}")
-        total = len(changed) + len(new_sites)
-        return f"Digital Watcher: {total} update(s) in the last 24 hours", "\n".join(lines)
-
-    if mode == "daily":
-        lines = [f"Checked {len(results)} site(s) - no changes in the last 24 hours."]
-        if errors:
-            lines.append("")
-            lines.append("Could not reach these sites:")
-            for r in errors:
-                lines.append(f"- {r['label']} ({r['url']}): {r['error']}")
-        return "Digital Watcher: daily check - no changes", "\n".join(lines)
-
-    # Instant mode, nothing changed: stay quiet.
-    return None, None
-
-
 def main():
     config = load_config()
     websites = config.get("websites", [])[:5]
@@ -189,10 +127,11 @@ def main():
     for r in results:
         print(r)
 
-    subject, body = build_message(config, results)
-    if subject is None:
+    notification = build_notification(config, results)
+    if notification is None:
         print("No notification needed this run.")
         return
+    subject, plain_body, html_body = notification
 
     notifications = config.get("notifications", {})
     user = config.get("user", {})
@@ -200,7 +139,8 @@ def main():
     if notifications.get("email"):
         ok, info = send_email(
             subject=subject,
-            body=body,
+            plain_body=plain_body,
+            html_body=html_body,
             to_address=user.get("email", ""),
             gmail_address=os.environ.get("GMAIL_ADDRESS", ""),
             gmail_app_password=os.environ.get("GMAIL_APP_PASSWORD", ""),
@@ -208,7 +148,7 @@ def main():
         print(info)
 
     if notifications.get("telegram"):
-        telegram_text = f"<b>{subject}</b>\n\n{body}"
+        telegram_text = f"<b>{subject}</b>\n\n{plain_body}"
         ok, info = send_telegram(
             text=telegram_text,
             chat_id=config.get("telegram_chat_id", ""),
