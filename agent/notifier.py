@@ -15,7 +15,11 @@ def send_email(subject, body, to_address, gmail_address, gmail_app_password):
     msg["To"] = to_address
 
     try:
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as server:
+        # STARTTLS on 587 rather than implicit SSL on 465: more reliable from
+        # GitHub Actions runners, where 465 connections have been observed to
+        # drop mid-handshake.
+        with smtplib.SMTP("smtp.gmail.com", 587, timeout=30) as server:
+            server.starttls()
             server.login(gmail_address, gmail_app_password)
             server.sendmail(gmail_address, [to_address], msg.as_string())
         return True, "Email sent."
