@@ -5,11 +5,21 @@ Sense  -> download each configured website's text.
 Decide -> compare it with the snapshot taken closest to 24 hours ago.
 Act    -> notify the user by Email / Telegram with what changed.
 
+This is a multi-user agent: profiles.json holds every user's profile
+(their own contact details, websites, and preferences). Every profile
+is checked on the same shared schedule (the workflow runs every 15
+minutes, see .github/workflows/check.yml), but each profile decides for
+itself whether a check is actually due right now:
+  - "instant" mode profiles: due on every run.
+  - "daily" mode profiles: due on the first run at-or-after their chosen
+    time each day (tracked via last_daily_run_date), so a profile set
+    for 16:30 fires within the same 15-minute cycle, by 16:45 at the
+    latest.
+
 Each site keeps a rolling history of snapshots (one per run) under
-snapshots/<site>/<unix-timestamp>.txt, covering at least the last 48
-hours. This lets every run - daily, instant, or manually triggered -
-report "what changed in the last 24 hours" instead of just "what
-changed since the last run".
+snapshots/<profile_id>/<site-hash>/<unix-timestamp>.txt, covering at
+least the last 48 hours. This lets every check report "what changed in
+the last 24 hours" instead of just "what changed since the last run".
 
 Run with: python agent/check_sites.py
 (from the repository root, as GitHub Actions does).
@@ -18,29 +28,63 @@ import hashlib
 import json
 import os
 import time
+from datetime import datetime
 from pathlib import Path
+
+try:
+    from zoneinfo import ZoneInfo
+except ImportError:  # pragma: no cover - always available on Python 3.9+
+    ZoneInfo = None
 
 from fetcher import fetch_text
 from messages import MAX_CHANGED_LINES, build_notification
 from notifier import send_email, send_telegram
 
 ROOT = Path(__file__).resolve().parent.parent
-CONFIG_PATH = ROOT / "config.json"
+PROFILES_PATH = ROOT / "profiles.json"
 SNAPSHOTS_DIR = ROOT / "snapshots"
 
 TARGET_AGE_HOURS = 24
 SNAPSHOT_RETENTION_HOURS = 48
 
 
-def load_config():
-    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+def load_profiles():
+    with open(PROFILES_PATH, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
-def site_dir(url):
+def save_profiles(profiles_doc):
+    with open(PROFILES_PATH, "w", encoding="utf-8") as f:
+        json.dump(profiles_doc, f, indent=2)
+        f.write("\n")
+
+
+def local_now(tz_name):
+    if ZoneInfo is not None:
+        try:
+            return datetime.now(ZoneInfo(tz_name))
+        except Exception:
+            pass
+    return datetime.now()
+
+
+def is_profile_due(profile):
+    if profile.get("mode", "daily") == "instant":
+        return True
+
+    now = local_now(profile.get("timezone", "Asia/Amman"))
+    if profile.get("last_daily_run_date") == now.strftime("%Y-%m-%d"):
+        return False  # already ran today
+
+    hour, minute = (int(p) for p in profile.get("daily_time", "08:00").split(":"))
+    target = now.replace(hour=hour, minute=minute, second=0, microsecond=0)
+    return now >= target
+
+
+def site_dir(profile_id, url):
     # Hash the URL so it's always a safe, unique folder name.
     digest = hashlib.sha1(url.encode("utf-8")).hexdigest()[:16]
-    path = SNAPSHOTS_DIR / digest
+    path = SNAPSHOTS_DIR / profile_id / digest
     path.mkdir(parents=True, exist_ok=True)
     return path
 
@@ -79,10 +123,10 @@ def prune_old_snapshots(directory, now_ts):
             path.unlink()
 
 
-def check_site(site, now_ts):
+def check_site(profile_id, site, now_ts):
     label = site.get("label") or site["url"]
     url = site["url"]
-    directory = site_dir(url)
+    directory = site_dir(profile_id, url)
     existing_snapshots = list_snapshots(directory)
 
     try:
@@ -114,27 +158,26 @@ def check_site(site, now_ts):
     return {"label": label, "url": url, "status": "unchanged"}
 
 
-def main():
-    config = load_config()
-    websites = config.get("websites", [])[:5]
+def process_profile(profile, now_ts):
+    profile_id = profile.get("profile_id", "unknown")
+    websites = profile.get("websites", [])[:5]
 
     if not websites:
-        print("No websites configured yet. Nothing to check.")
+        print(f"[{profile_id}] No websites configured. Skipping.")
         return
 
-    now_ts = int(time.time())
-    results = [check_site(site, now_ts) for site in websites]
+    results = [check_site(profile_id, site, now_ts) for site in websites]
     for r in results:
-        print(r)
+        print(f"[{profile_id}] {r}")
 
-    notification = build_notification(config, results)
+    notification = build_notification(profile, results)
     if notification is None:
-        print("No notification needed this run.")
+        print(f"[{profile_id}] No notification needed this run.")
         return
     subject, plain_body, html_body = notification
 
-    notifications = config.get("notifications", {})
-    user = config.get("user", {})
+    notifications = profile.get("notifications", {})
+    user = profile.get("user", {})
 
     if notifications.get("email"):
         ok, info = send_email(
@@ -145,16 +188,50 @@ def main():
             gmail_address=os.environ.get("GMAIL_ADDRESS", ""),
             gmail_app_password=os.environ.get("GMAIL_APP_PASSWORD", ""),
         )
-        print(info)
+        print(f"[{profile_id}] {info}")
 
     if notifications.get("telegram"):
         telegram_text = f"<b>{subject}</b>\n\n{plain_body}"
         ok, info = send_telegram(
             text=telegram_text,
-            chat_id=config.get("telegram_chat_id", ""),
+            chat_id=profile.get("telegram_chat_id", ""),
             bot_token=os.environ.get("TELEGRAM_BOT_TOKEN", ""),
         )
-        print(info)
+        print(f"[{profile_id}] {info}")
+
+
+def main():
+    profiles_doc = load_profiles()
+    profiles = profiles_doc.get("profiles", [])
+
+    if not profiles:
+        print("No profiles yet. Nothing to check.")
+        return
+
+    now_ts = int(time.time())
+    profiles_changed = False
+
+    for profile in profiles:
+        profile_id = profile.get("profile_id", "unknown")
+
+        if not is_profile_due(profile):
+            print(f"[{profile_id}] Not due yet - skipping.")
+            continue
+
+        print(f"[{profile_id}] Running check...")
+        try:
+            process_profile(profile, now_ts)
+        except Exception as exc:
+            # One profile's failure shouldn't stop everyone else's checks.
+            print(f"[{profile_id}] Failed unexpectedly: {exc}")
+
+        if profile.get("mode", "daily") == "daily":
+            today = local_now(profile.get("timezone", "Asia/Amman")).strftime("%Y-%m-%d")
+            profile["last_daily_run_date"] = today
+            profiles_changed = True
+
+    if profiles_changed:
+        save_profiles(profiles_doc)
 
 
 if __name__ == "__main__":

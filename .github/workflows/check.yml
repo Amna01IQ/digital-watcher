@@ -36,14 +36,23 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         run: python agent/check_sites.py
 
-      - name: Save updated snapshots
+      - name: Save updated snapshots and profile state
         run: |
           git config user.name "digital-watcher-bot"
           git config user.email "actions@github.com"
-          git add snapshots
+          git add snapshots profiles.json
           if git diff --cached --quiet; then
-            echo "No snapshot changes to commit."
-          else
-            git commit -m "Update website snapshots [skip ci]"
-            git push
+            echo "No changes to commit."
+            exit 0
           fi
+          git commit -m "Update snapshots and profile state [skip ci]"
+          # profiles.json can also be edited by the Streamlit app around the
+          # same time, so rebase onto the latest remote before pushing.
+          for attempt in 1 2 3; do
+            if git push; then
+              exit 0
+            fi
+            echo "Push rejected, retrying with rebase (attempt $attempt)..."
+            git pull --rebase origin main
+          done
+          git push
