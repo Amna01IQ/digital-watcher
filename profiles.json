@@ -69,7 +69,7 @@
         "telegram": true
       },
       "mode": "daily",
-      "daily_time": "22:15",
+      "daily_time": "09:30",
       "timezone": "Asia/Amman",
       "last_daily_run_date": "2026-07-06"
     },
