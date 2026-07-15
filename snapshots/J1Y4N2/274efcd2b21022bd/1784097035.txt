@@ -1,0 +1,388 @@
+AirArabia
+تسجيل الدخول
+Click here to active Air Rewards
+and complete your registration
+{{ firstName }}
+Activate Air Rewards
+{{points | formatPoints}} AirRewards Points
+لوحة التحكم
+تسجيل الخروج
+{{ selectedText || 'يرجى الاختيار' }}
+Select a country
+{{ country.CountryName }}
+{{ selectedCurrency.code }}
+{{ currency.code }}
+ar
+العربية
+Deutsch
+English
+español
+français
+italiano
+Türkçe
+русский
+العربية
+Login
+AirRewards
+اكتشف AirRewards
+التسجيل
+الدخول
+بطاقة العربية للطيران بلاتينوم الائتمانية تذكرتك لمزيد من السفر
+Click here to active Air Rewards
+and complete your registration
+{{ firstName }}
+Activate Air Rewards
+{{points | formatPoints}} AirRewards Points
+لوحة التحكم
+تسجيل الخروج
+احجز رحلتك
+الحجز
+حجز رحلة
+حجز فندق + رحلة جوية
+حجز فندق
+حجز سيارة
+أفضل العروض
+أنواع الأسعار
+الحجز معنا
+خدمات النقل بالحافلات
+خدمة الشحن
+خيارات الدفع
+السفر معنا
+مجلة العربية للطيران
+سكاي كافيه
+الترفيه في الطائرة
+حجز المجموعات واستئجار الطائرات
+طلب حجز المجموعات
+طلب استئجار الطائرات
+إدارة الحجز
+التعديلات والإلغاءات
+تعديل الحجز
+إلغاء الحجز
+رسوم التعديل والإلغاء
+خدمات إضافية
+إضافة أمتعة
+إضافة مقاعد
+إضافة وجبات
+إضافة تأمين
+إضافة خدمات المطار
+AirRewards
+إضافة رقم AirRewards - الرحلة المستقبلية
+إضافة رقم AirRewards - الرحلة السابقة
+وضع الرحلة
+تحقق من وضع الرحلة
+إجراءات السفر
+إنهاء إجراءات السفر عبر الإنترنت
+إنهاء إجراءات السفر في المدينة
+إجراءات السفر في المنزل - الشارقة
+إجراءات السفر في المنزل - أبوظبي
+الوجهات
+شبكة الوجهات
+الوجهات
+شبكة الوجهات
+مراكز عملياتنا
+مصر
+المغرب
+الإمارات العربية المتحدة
+الشهيرة
+البحرين
+فرنسا
+الهند
+باكستان
+المملكة العربية السعودية
+المزيد
+عطلات
+جورجيا
+تركيا
+إيطاليا
+المالديف
+تايلاند
+المزيد
+مساعدة
+مركز المساعدة
+Start Chat
+الهند
+الأسئلة الشائعة حول السفر
+FAQ Source
+Welcome
+Mr. Firsname Lastname
+500
+نقاط
+EUR 150
+رصيد
+حسابي
+Upcoming flight
+Sharjah to Mumbai - 21/09/2019
+عرض
+تعديل
+رحلات جوية
+رحلات جوية
+رحلة جوية + فندق
+رحلة جوية + فندق
+باقات العطلات
+عطلات
+رحلة ذهاب
+ذهاب وإياب
+وجهات متعددة
+البحث السابق
+{{ item.airportFrom }} إلى {{ item.airportTo }}
+{{ item.departure }} - {{ item.return }}
+{{ item.airportFrom }} إلى {{ item.airportTo }}
+{{ item.departure }}
+الذهاب
+{{
+propScope.monthLabel }} {{ propScope.year }}
+{{
+propScopePre.preMonthText }}
+{{
+propScopeNext.nextMonthText }}
+تاريخ المغادرة
+{{ propScope.monthLabel }} {{
+propScope.year }}
+{{
+propScopePre.preMonthText }}
+{{
+propScopeNext.nextMonthText }}
+تم
+العودة
+{{
+propScope.monthLabel }} {{ propScope.year }}
+{{
+propScopePre.preMonthText }}
+{{
+propScopeNext.nextMonthText }}
+تاريخ العودة
+{{ propScope.monthLabel }} {{
+propScope.year }}
+{{
+propScopePre.preMonthText }}
+{{
+propScopeNext.nextMonthText }}
+تم
+المسافرون
+المسافرون
+البالغين
++12 سنة
+-
+{{ adults }}
++
+أطفال
+2-11 سنة
+-
+{{ children }}
++
+الرضع
+<2 سنة
+-
+{{ infants }}
++
+نوع المقصورة
+Economy class
+Business class
+تم
+إخفاء
+العملة
+{{ item.text }}
+رمز العملة غير صالح
+{{ item.text }}
+برنامج العرض
+ابحث واحجز
+Redirecting to Reach
+سجل في
+More Info
+واكسب ما يصل إلى 10٪ نقاط مقابل كل عملية شراء.
+الدخول
+التسجيل
+الروابط السريعة
+إدارة الحجز
+إنهاء إجراءات السفر عبر الانترنت
+برنامج الولاء - AirRewards
+تحقق من وضع الرحلة
+إتصل بنا
+من نحن
+الشروط والأحكام
+أفضل العروض
+من
+Afghanistan
+Armenia
+Austria
+Azerbaijan
+Bahrain
+Bangladesh
+Belgium
+Czech Republic
+Egypt
+Ethiopia
+France
+Georgia
+Germany
+Greece
+India
+Iran
+Iraq
+Italy
+Jordan
+Kazakhstan
+Kenya
+Kuwait
+Kyrgyzstan
+Lebanon
+Malaysia
+Maldives
+Morocco
+Nepal
+Netherlands
+Oman
+Pakistan
+Poland
+Qatar
+Russia
+Saudi Arabia
+Somalia
+Spain
+Sri Lanka
+Switzerland
+Syria
+Thailand
+Turkey
+Uganda
+United Arab Emirates
+United Kingdom
+Uzbekistan
+الشهر
+{{ option.name }}
+عرض المزيد
+{{offer.from}} إلى {{offer.to}}
+من
+{{offer.currency}} {{offer.fromPrice}}
+خريطة المسارات
+.استكشف المدن والمسارات التي نصل إليها حول العالم. خطط لرحلتك القادمة بسهولة من خلال اكتشاف جميع الوجهات التي نخدمها
+اعثر على أفضل الأسعار
+.ابحث عن أقل الأسعار لمسارك المفضل. اكتشف أفضل الخيارات لجعل رحلتك ميسورة التكلفة وخالية من التوتر
+إدارة رحلتك
+تعديل تاريخ الرحلة
+اعرض حجزك أو غيّره أو ألغِه في أي وقت. ابقَ مسيطرًا على خططك.
+إضافة أمتعة
+ادفع فقط مقابل الأمتعة التي تحتاجها، واحجز مسبقًا لتوفير كبير على رسوم المطار.
+التحقق من حالة الرحلة
+احصل على تحديثات فورية لمواعيد الإقلاع والوصول. سافر بثقة.
+إنجاز إجراءات السفر عبر الإنترنت
+تخطَّ الطوابير، وأنجز إجراءات سفرك من جهازك، واحصل على بطاقة الصعود فورًا.
+اكتشف العربية للطيران
+استكشف خريطة وجهاتنا
+انضم إلى AirRewards وابدأ بكسب النقاط
+سافر بذكاء مع تطبيق العربية للطيران
+حمّل تطبيق العربية للطيران لحجز رحلتك وإدارة سفرك أثناء التنقل. يمكنك أيضًا التحقق من حالة الرحلة، وتحديث حجزك، وإتمام إجراءات السفر عبر الإنترنت للحصول على بطاقة الصعود.
+المكتب الإعلامي
+14 يوليو 2026
+Rome Becomes Air Arabia’s Second Italian Destination from Sharjah
+05 يوليو 2026
+Air Arabia Commences Non-Stop Flights Between Sharjah and London Gatwick
+23 يونيو 2026
+Air Arabia Abu Dhabi adds Aleppo to its growing network in Syria
+18 يونيو 2026
+Air Arabia launches daily non-stop flights between Sharjah and Aleppo
+14 مايو 2026
+Air Arabia Reports AED 278 Million Net Profit for First Quarter 2026
+الاشتراك في النشرة الإخبارية
+احصل على أحدث العروض والعروض الترويجية أولاً.
+أفغانستان
+الجزائر
+أرمينيا
+النمسا
+أذربيجان
+البحرين
+بنغلاديش
+بلجيكا
+البوسنة والهرسك
+كمبوديا
+كندا
+الصين
+كرواتيا
+التشيك
+مصر
+إثيوبيا
+فرنسا
+جورجيا
+ألمانيا
+اليونان
+الهند
+إيران
+العراق
+إيطاليا
+الأردن
+كازاخستان
+كينيا
+الكويت
+قيرغيزستان
+لبنان
+ماليزيا
+المالديف
+المغرب
+نيبال
+هولندا
+عُمان
+باكستان
+بولندا
+قطر
+روسيا
+المملكة العربية السعودية
+الصومال
+أرض الصومال
+إسبانيا
+سريلانكا
+السودان
+سويسرا
+سوريا
+تايلاند
+تركيا
+أوغندا
+الإمارات العربية المتحدة
+المملكة المتحدة
+أوزبكستان
+احجز رحلتك
+حجز رحلة
+حجز فندق + رحلة جوية
+حجز فندق
+حجز سيارة
+سفر المجموعات
+الرحلات المستأجرة
+رحلتك معنا
+الوجهات
+شروط الحمولة
+الشحن
+في المطار
+على متن الطائرة
+الرحلات
+رحلات من دول
+رحلات إلى دول
+رحلات من مدن
+رحلات إلى مدن
+رحلات من مدينة إلى مدينة
+السفر من دبي
+السفر إلى دبي
+خدمات العملاء
+اتصل بنا
+مراكز الاتصال
+مواقع مكاتبنا
+مساعدة
+شكوى العميل
+من نحن
+أسطولنا
+مراكزنا
+مكتب العلاقات العامة
+علاقات المستثمرين
+Accessibility Statement
+معلومات الشركة
+المسؤولية الإجتماعية
+الاستدامة
+الوظائف
+الشروط والأحكام
+شروط الحمولة
+شروط وأحكام الموقع
+سياسة الخصوصية
+سياسة ملف تعريف الارتباط
+رسوم التعديل والإلغاء
+تسجيل الدخول
+وكيل السفر
+إدارة الحجز
+Copyright 2025 © Air Arabia. All rights reserved.
