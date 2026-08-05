@@ -174,6 +174,7 @@ Upload file
 Permanent link
 Page information
 Get shortened URL
+Switch to legacy parser
 Print/export
 Download as PDF
 Printable version
@@ -194,7 +195,8 @@ Please
 take care
 when editing, especially if using
 automated editing software
-. Learn how to
+.
+Learn how to
 update the maintenance information here
 .
 Wikipedia portal for content related to Current events
@@ -206,15 +208,19 @@ Entry views by week list
 Today's most viewed articles
 Wikimedia portal
 Topics in the news
-Earthquake damage
+Broad Peak
+An avalanche
+on
+Broad Peak
+(pictured)
+in Pakistan kills 10 climbers.
 About 60,000 migrants cross
 the
 Morocco–Spain border
 at
 Ceuta
-, leading to at least 83 deaths.
+, leading to at least 99 deaths.
 A magnitude 6.8 earthquake
-(damage pictured)
 strikes
 Kumamoto Prefecture
 , Japan, leaving at least 38 people dead.
@@ -229,11 +235,6 @@ Kerry
 in
 the final
 .
-In cycling,
-Tadej Pogačar
-wins
-the Tour de France
-.
 Ongoing
 :
 Iran war
@@ -244,14 +245,210 @@ Russo-Ukrainian war
 timeline
 Recent deaths
 :
+Glen Hansard
+Nirmal Purja
 Kavinsky
 Samara Colina
 Lucy López
 Billy Ray Smith Jr.
-Bill McGlaughlin
-Alfonso Sánchez Anaya
 Nominate an article
-August 3, 2026
+August
+5,
+2026
+(
+2026-08-05
+)
+(Wednesday)
+edit
+history
+watch
+August
+4,
+2026
+(
+2026-08-04
+)
+(Tuesday)
+edit
+history
+watch
+Armed conflicts and attacks
+Middle Eastern crisis
+Gaza war
+,
+Gaza genocide
+Casualties of the Gaza war
+A mass funeral is held for 112 bodies that were recovered from a
+Israeli
+strike in the
+Sabra
+neighborhood of
+Gaza City
+during the early weeks of the war.
+(
+Haaretz
+)
+Red Sea crisis
+Yemen
+'s
+internationally recognized government
+says a
+projectile
+attack sank the
+Indian
+-flagged cargo ship MSV
+Faize Noore Oliya
+in the
+Red Sea
+near the coast of
+Hodeidah
+, with all 14 crew members rescued.
+(AFP via
+Arab News
+)
+Sudanese civil war
+Darfur campaign
+Rapid Support Forces
+senior commander and
+brigadier general
+Mahdi Adam Ismail
+, also known as
+Jebel Moon
+, is confirmed to be killed during clashes with the
+Sudanese Armed Forces
+and the
+Joint Forces
+in
+West Darfur
+,
+Sudan
+. His death is confirmed by
+Sudan Liberation Movement
+leader and
+Darfur governor
+Minni Arko Minnawi
+.
+(
+Sudan Tribune
+)
+(Sudan Nabaa)
+Health and environment
+2026 European heatwaves
+Austria
+records 41
+°C (106
+°F) in
+Vienna
+, the
+highest temperature
+in
+the country's history
+, as a
+heat wave
+also brings
+wildfires
+and historically low
+Danube
+water levels.
+(Xinhua)
+International relations
+Brazil–United States relations
+The
+United States
+revokes the
+visa
+of
+Brazilian ambassador
+Maria Luiza Ribeiro Viotti
+to
+reciprocate
+Brazil
+'s denial of
+visas
+to two U.S. diplomats. The
+State Department
+says the action does not expel Viotti from the country.
+(AFP via
+New Straits Times
+)
+Law and crime
+Colombian conflict
+Colombia
+'s
+Special Jurisdiction for Peace
+charges 27 former
+FARC
+members, including ex-commander
+Timoleón Jiménez
+, with
+crimes against humanity
+and
+sexual violence
+committed during the conflict, including killings,
+disappearances
+,
+displacement
+, and
+rape
+.
+(AFP via
+The Manila Times
+)
+Kyrgyz president
+Sadyr Japarov
+signs a law banning the use of
+cremation
+for deceased human bodies in
+Kyrgyzstan
+.
+(AKIPress)
+(Kabar)
+South Sudan
+'s
+police
+arrests 60 suspected gang members in a series of operations targeting criminal gangs,
+drug trafficking
+, and
+youth delinquency
+in
+Juba
+.
+(
+Sudans Post
+)
+Four people are killed and four others are injured in a
+shooting spree
+by a
+rogue
+Russian soldier
+in
+Sevastopol
+,
+Russian-occupied Crimea
+.
+(CBS News)
+Sports
+In
+basketball
+, the
+Women's National Basketball Association
+(WNBA) announces that the expansion team in
+Cleveland
+,
+Ohio
+,
+U.S.
+, will be called the
+Sirens
+. The organization will debut in 2028.
+(
+The Athletic
+via
+The New York Times
+)
+August
+3,
+2026
 (
 2026-08-03
 )
@@ -260,6 +457,66 @@ edit
 history
 watch
 Armed conflicts and attacks
+Middle Eastern crisis
+Gaza war
+,
+Gaza genocide
+Gaza peace plan
+A
+Board of Peace
+envoy meets
+Israeli prime minister
+Benjamin Netanyahu
+and urges a halt in strikes across the
+Gaza Strip
+. However, they also announce that
+Israel
+will not withdraw from the enclave until
+Hamas
+completely disarms.
+(
+The New Region
+)
+(
+The Washington Post
+)
+Casualties of the Gaza war
+The
+United Nations
+Office for the Coordination of Humanitarian Affairs
+reports that dozens of
+children
+and civilians have been killed in Israeli attacks on Gaza over the weekend, violating the ongoing ceasefire.
+(Xinhua)
+Two
+Palestinian
+civilians are killed in an Israeli missile strike near a
+mosque
+which targeted a civilian vehicle southwest of
+Gaza City
+.
+(Middle East Eye)
+Gaza war hostage crisis
+The
+Israel Defense Forces
+(IDF) claim that they have killed
+Palestinian Islamic Jihad
+commander
+Mahmoud Fatair
+.
+(
+The Jerusalem Post
+)
+The IDF claim that they have killed two Hamas militants in separate
+airstrikes
+in central Gaza and the
+Shati camp
+in
+Gaza City
+respectively, violating the ongoing ceasefire.
+(
+The Times of Israel
+)
 Red Sea crisis
 Shipping data shows that two
 tanker
@@ -281,13 +538,174 @@ Bab-el-Mandeb
 strait
 .
 (Reuters)
-(Marine News Magazine)
+Russo-Ukrainian war
+Attacks in Russia during the Russo-Ukrainian war
+At least seven people, including three children, are killed and 40 others are injured when drone debris falls on a crowded beach in
+Gelendzhik
+,
+Krasnodar Krai
+,
+Russia
+.
+(CNN)
 Disasters and accidents
+2026 Venezuela earthquakes
+The death toll from the two
+earthquakes
+that hit
+Venezuela
+in June exceeds 6,000 people according to figures from lawmaker
+Jorge Rodríguez
+.
+(Reuters)
 At least fourteen people are killed in a series of floods in
 southern India
 .
 (Reuters)
-August 2, 2026
+Guatemala
+'s
+disaster agency
+declares a nationwide orange alert following a major eruption of
+Fuego volcano
+and begins evacuating two nearby villages.
+(AFP via RNZ)
+Health and environment
+2020–2026 H5N1 outbreak
+Scotland
+'s
+NatureScot
+denies a 2026 licence for hunting
+northern gannets
+on
+Sula Sgeir
+, citing possible harm to the local gannet population after recent
+bird-flu
+deaths.
+(AFP via RFI)
+2026 European heatwaves
+Italy
+experiences its fourth
+heatwave
+of the summer with the
+health ministry
+issuing
+red alerts
+for a record 25 cities.
+(AA)
+2026 United States cyclosporiasis outbreak
+Michigan
+,
+U.S.
+, reports the first two deaths of the current
+cyclosporiasis
+outbreak, which is caused by
+cyclospora cayetanensis
+.
+(AP)
+Law and crime
+COVID-19 pandemic in Poland
+The
+Polish
+health ministry
+appeals a
+Brussels
+court
+ruling that ordered the country to accept and pay approximately
+€
+1.3 billion for unwanted
+COVID-19 vaccine
+doses
+produced
+by
+Pfizer
+and
+BioNTech
+.
+(
+Politico EU
+)
+Politics and elections
+Human rights in Russia
+Russian
+opposition
+politician
+Boris Nadezhdin
+, who attempted to contest the
+2024 presidential election
+on a platform against the
+Russo-Ukrainian war
+, announces that he has fled the country to
+France
+following growing pressure on him and his family.
+(
+The Moscow Times
+)
+Sports
+2026 WTA Tour
+2026 Mubadala DC Open
+In
+tennis
+,
+Alexandra Eala
+becomes the first
+Filipino
+player and the first player from
+Southeast Asia
+to win a
+WTA Tour
+title after defeating
+Jessica Pegula
+4–6, 6–4, 6–0 to win the
+women's singles
+title at the 2026
+Washington DC Open
+.
+(AFP via RFI)
+(ESPN)
+In
+horse racing
+,
+Churchill Downs Incorporated
+and the
+New York Racing Association
+announce a new championship series for 3-year old
+Thoroughbreds
+beginning in 2027, involving the
+Kentucky Derby
+and
+Belmont Stakes
+, but notably omitting the traditional middle leg of the
+U.S. Triple Crown
+, the
+Preakness Stakes
+.
+(
+Courier Journal
+)
+(
+The Daily Gazette
+)
+Major League Soccer
+, the top flight of men's
+soccer
+in the
+U.S.
+and
+Canada
+, announces that
+Larry Berg
+, currently a co-owner of
+Los Angeles FC
+(LAFC) in that league, will succeed
+Don Garber
+as league commissioner at the start of 2027. Berg will sell his interest in LAFC before assuming his new position.
+(AP)
+(
+The Guardian
+)
+August
+2,
+2026
 (
 2026-08-02
 )
@@ -354,6 +772,31 @@ Israel National News
 (
 The Jerusalem Post
 )
+Ethiopian civil conflict
+Ethiopia-TPLF clashes
+New clashes are reported across the
+Tigray Region
+in northern
+Ethiopia
+between the
+Ethiopian federal army
+and
+Tigray People's Liberation Front
+, four years after the
+previous war
+in the region ended, prompting hundreds to flee to war-torn
+Sudan
+amidst fears of a new
+civil war
+.
+(BBC)
+(Al Jazeera)
+Several Ethiopian refugees are reportedly killed after projectiles have hit refugee camps across the
+Ethiopia–Sudan border
+.
+(
+Sudan Tribune
+)
 Sudanese civil war
 Darfur campaign
 ,
@@ -408,7 +851,7 @@ Greece
 (BBC News)
 2026 Morocco–Spain border incident
 Spanish officials
-say at least 72 people died during a
+say at least 72 people died during the
 mass migrant crossing
 from
 Morocco
@@ -418,9 +861,7 @@ of
 Ceuta
 .
 (Reuters)
-Six people are killed and 27 more injured in a traffic collision between a bus, a
-camper
-and three cars in
+Six people are killed and 27 more injured in a traffic collision between a bus, a camper, and three cars in
 Colli sul Velino
 ,
 Province of Rieti
@@ -428,9 +869,7 @@ Province of Rieti
 Italy
 .
 (Xinhua)
-A
-ferry
-catches fire off the coast of
+A ferry catches fire off the coast of
 Madura
 ,
 Indonesia
@@ -440,7 +879,9 @@ Health and environment
 South Korea
 's
 weather agency
-records 42.5 °C (108.5 °F) in
+records 42.5
+°C (108.5
+°F) in
 Yangsan
 ,
 South Gyeongsang
@@ -476,7 +917,9 @@ Workers' Party
 presidential election
 .
 (AFP via France 24)
-August 1, 2026
+August
+1,
+2026
 (
 2026-08-01
 )
@@ -787,7 +1230,7 @@ Melilla
 (Yeni Safak)
 Law and crime
 2026 Twin Falls shooting
-At least four people are killed, including the perpetrator, and others are injured in a
+Four people are killed, including the perpetrator, and seven others are injured in a
 mass shooting
 at an
 In-N-Out
@@ -820,15 +1263,15 @@ similar breach
 .
 (Al Jazeera)
 (ABC News)
-Four men are
-fatally shot
+Four workers are killed in a
+mass shooting
 in
 Nyanga
 ,
 Western Cape
 ,
 South Africa
-, after they were attacked while repairing a flat tyre.
+, while they were repairing a flat tyre.
 (
 The Witness
 )
@@ -847,7 +1290,9 @@ FIFA Forward Enterprise
 (
 The Telegraph
 )
-July 31, 2026
+July
+31,
+2026
 (
 2026-07-31
 )
@@ -1169,7 +1614,9 @@ authorities announces it arrested a
 Malaysia Airlines
 pilot for allegedly
 smuggling
-over 26 kg (57 lb) of
+over 26
+kg (57
+lb) of
 ecstasy
 and a package of
 methamphetamine
@@ -1220,7 +1667,9 @@ Infantino reverses his plan to sell stakes in the
 FIFA World Cup
 amidst backlash.
 (ESPN)
-July 30, 2026
+July
+30,
+2026
 (
 2026-07-30
 )
@@ -1714,513 +2163,14 @@ extends Russia's ban to the
 2027 Women's Ice Hockey World Championships
 .
 (ESPN)
-July 29, 2026
-(
-2026-07-29
-)
-(Wednesday)
-edit
-history
-watch
-Armed conflicts and attacks
-Middle Eastern crisis
-Gaza war
-Attacks on religious sites during the Israeli invasion of Gaza
-Israeli forces
-strike a
-mosque
-in
-Gaza City
-in violation of
-the ongoing ceasefire
-and accuses
-Hamas
-of using it to store
-weapons
-.
-(
-The New York Times
-)
-Hezbollah–Israel conflict
-2026 Lebanon war
-Israeli forces accuse
-Hezbollah
-of launching a
-drone attack
-on its forces in the
-Ali al-Taher
-ridge of
-southern
-Lebanon
-, in violation of
-the ceasefire
-.
-(AFP via
-Arab News
-)
-Israeli forces also claim that their 401st Brigade Combat Team and
-Yahalom Unit
-have destroyed an underground headquarters belonging to
-Hezbollah
-, located near a
-UNIFIL
-post.
-(
-Israel National News
-)
-2026 Iran war
-Saudi Arabia in the 2026 Iran war
-,
-Iraq in the 2026 Iran war
-The
-Saudi Arabian Armed Forces
-and
-United States Central Command
-(U.S. CENTCOM) launch strikes against
-Iran
-–backed militias in
-Iraq
-in response to
-Iranian drone
-attacks against
-oil facilities
-in
-Saudi Arabia
-'s
-Eastern Province
-.
-(
-Iraqi News
-)
-(Reuters)
-The
-Popular Mobilization Forces
-reports that 20 militants have been killed in joint Saudi–U.S. strikes.
-(
-The Defense Post
-)
-Several members of the
-Islamic Revolutionary Guard Corps
-are also confirmed to have been killed in the Saudi–U.S. strikes in Iraq.
-(
-The New Region
-)
-Egypt in the 2026 Iran war
-2026 Damietta drone strike
-A drone strike targets the
-LNG storage
-tanker
-Energos Winter
-, which is leased by the
-Egyptian Natural Gas Holding Company
-, at the port of
-Damietta
-,
-Egypt
-. Additionally, another vessel is also targeted. The group responsible for the strike is currently unknown.
-(
-The New York Times
-)
-July 2026 United States strikes against Iran
-The U.S. CENTCOM launches strikes against
-Iran
-in retaliation of a attempted
-attack
-by
-Iran
-against
-Jordan
-.
-(AP)
-Red Sea crisis
-Data from Kpler shows that 39 commercial vessels have transited through the
-Bab el-Mandeb
-yesterday, the highest since July 19, while another five transited it today, including the
-VLCC
-Sophia
-and the
-Aframax
-tanker
-​Ocean Laureate
-.
-(Reuters)
-Sudanese civil war
-Kordofan campaign
-The
-Sudan Tribune
-reports that
-Rapid Support Forces
-militants retreating from
-Umm Sayala
-,
-Jabrat al-Sheikh
-, and
-Barah
-have launched retaliatory strikes in
-North Kordofan
-.
-(
-Sudan Tribune
-)
-Somali Civil War
-Five
-soldiers
-are killed in a
-shootout
-with
-Al-Shabaab
-gunmen in
-Mandera County
-,
-Kenya
-.
-(
-Garowe Online
-)
-Terrorism in Pakistan
-Ten
-police officers
-are killed in a drone attack and ambush in
-Hangu
-district of northwest
-Pakistan
-. Pakistani authorities claim that 15 of the attackers were killed.
-(Reuters)
-Disasters and accidents
-Wildfires in 2026
-Two
-firefighters
-are killed while battling a
-wildfire
-near
-Rethymno
-,
-Crete
-,
-Greece
-, while a third dies near
-Gytheio
-,
-Laconia
-, during a separate operation.
-(AFP via
-Malay Mail
-)
-A
-Bell 412
-helicopter crashes while on a fire-fighting training operation in
-San Juan
-,
-Argentina
-, killing all seven occupants.
-(AFP via NDTV)
-Health and environment
-Kenya Wildlife Service
-says preliminary tests indicated
-cyanide-contaminated
-tomatoes may have killed 15 elephants near
-Amboseli National Park
-over the past month, warning that
-livestock grazing
-in the area could also be exposed.
-(AFP via
-The Manila Times
-)
-Law and crime
-2026 Bolivian protests
-Bolivian
-prosecutors issue an arrest warrant for former
-president
-Evo Morales
-for allegedly organizing protests and
-roadblocks
-across the country in May and June. The investigation follows complaints alleging
-armed uprising
-and
-terrorism
-.
-(AFP via
-Firstpost
-)
-Russo-Ukrainian war
-Russia's
-Federal Security Service
-​issues an arrest warrant on
-Telegram
-founder
-Pavel Durov
-for facilitating terrorist activity, alleging that Telegram helps
-Ukraine
-plan attacks in Russia.
-(Reuters)
-Politics and elections
-The
-government of Nauru
-announces the official change of name of
-the country
-from Nauru to Naoero.
-(RNZ)
-Sports
-2026 FIFA World Cup
-Argentina at the FIFA World Cup
-FIFA
-opens an investigation into the
-Argentina national football team
-over altercations during the
-World Cup
-final
-and the display of a banner of the
-Falklands
-.
-(
-The Athletic
-via
-The New York Times
-)
-July 28, 2026
-(
-2026-07-28
-)
-(Tuesday)
-edit
-history
-watch
-Armed conflicts and attacks
-Middle Eastern crisis
-Gaza war
-Gaza peace plan
-A
-Hamas
-delegation visits
-Cairo
-,
-Egypt
-, to resume negotiations on the implementation of the next phase of its
-ceasefire
-with
-Israel
-.
-(
-The Jerusalem Post
-)
-2026 Iran war
-The
-United States Central Command
-says that
-Islamic Revolutionary Guard Corps
-forces have launched multiple
-ballistic missiles
-from
-Iran
-in a "
-surprise attack
-" against
-U.S. forces
-in the
-Middle East
-, and that all missiles were successfully intercepted.
-(
-Politico
-)
-Mali War
-2026 Mali offensives
-Malian Armed Forces
-launch strikes against two armed vehicles and
-Jama'at Nusrat al-Islam wal-Muslimin
-and
-Azawad Liberation Front
-militants in the
-Ségou Region
-near Dagabory as part of Operation Dougoukoloko.
-(APA)
-Sudanese civil war
-Kordofan campaign
-Human rights
-group Emergency Lawyers reports that recent
-airstrikes
-have targeted multiple locations in
-North Kordofan
-,
-Sudan
-, including a
-water station
-and civilian vehicles, killing dozens of civilians.
-(
-Sudan Tribune
-)
-Sudanese refugee crisis
-,
-Darfur campaign
-The
-United Nations
-reports that over 20,000 people have been
-displaced
-in
-Sudan's
-Darfur
-region over insecurity and violence.
-(Middle East Monitor)
-Arts and culture
-2026 Booker Prize
-The
-longlist
-for the 2026
-Booker Prize
-is announced.
-(
-The Guardian
-)
-Disasters and accidents
-2026 Kumamoto earthquake
-A M
-w
-7.1 earthquake strikes central
-Kumamoto Prefecture
-,
-Japan
-, causing a
-tsunami alert
-for the western
-Kyūshū
-coast. At least 13 people are killed.
-(CNN)
-Three more people are rescued from the
-Vietnamese
-cargo ship
-Khoi Nguyen 18
-that sank on Saturday. Fourteen others remain missing with a multinational search still underway.
-(AFP via The Canadian Press)
-(
-South China Morning Post
-)
-International relations
-International sanctions during the Russian invasion of Ukraine
-,
-United States and the Russo-Ukrainian war
-The
-United States Senate
-votes 86–12 to advance
-legislation
-imposing
-sanctions on Russia
-'s
-energy
-revenues,
-financial institutions
-,
-officials
-, and
-shadow fleet
-, while authorizing
-tariffs
-of up to 100% on major buyers of
-Russian oil
-and
-gas
-.
-(
-Politico
-)
-(
-Kyiv Post
-)
-Law and crime
-2024 Apalachee High School shooting
-The gunman convicted of carrying out a
-school shooting
-at
-Apalachee High School
-in
-Winder
-,
-Georgia
-,
-United States
-, in 2024, receives four sentences of
-life in prison
-without the possibility of
-parole
-.
-(AFP via
-Philippine Daily Inquirer
-)
-Myanmar
-'s
-military
--backed
-parliament
-passes a law allowing the
-death penalty
-when
-coercion
-,
-unlawful detention
-, torture, or other abuse used to force victims into
-online scams
-results in death. The law also imposes severe penalties on
-scam-centre
-operators.
-(AFP via France 24)
-Taiwanese
-prosecutors detain an
-Nvidia
-employee in an investigation into alleged smuggling of advanced
-artificial intelligence
-chips
-to
-China
-through
-falsified
-transport documents
-. Authorities hold seven people over shipments of about 50
-Supermicro
-servers
-that may violate
-U.S. export controls
-.
-(AFP via France 24)
-Politics and elections
-2026 Peruvian general election
-Keiko Fujimori
-is sworn in as
-President
-of
-Peru
-after winning the general election in June.
-(AP)
-(Reuters)
-2026 Victorian Labor Party leadership election
-In
-Australia
-,
-Victorian
-premier
-Jacinta Allan
-resigns, triggering a
-leadership spill
-.
-Ben Carroll
-is elected unanimously as the new Premier and
-Victorian Labor Party
-leader.
-(ABC News Australia)
-(Reuters)
-Women in Algeria
-Khalida Boufedeche
-is elected the first woman
-president of the People's National Assembly
-of
-Algeria
-.
-(France24)
 More July 2026 events...
 Time
-: 13:02
+: 10:19
 UTC
 |
 Day
 :
-3 August
+5 August
 ◀
 August 2026
 ▶
@@ -2298,12 +2248,6 @@ Spain
 North American heat wave
 edit section
 Elections and referendums
-Recent
-July
-19:
-São Tomé and Príncipe
-,
-President
 Upcoming
 August
 12:
@@ -2369,8 +2313,13 @@ August
 0
 July
 0
-1
-:
+2:
+Kay Granger
+0
+2:
+Rod Liddle
+0
+1:
 Vincent Pastore
 31:
 Franco Baresi
@@ -2501,12 +2450,6 @@ Slaine Kelly
 0
 4:
 Sparky D
-0
-1:
-Vladimir McTavish
-0
-1:
-Roger Vangheluwe
 edit section
 Ongoing conflicts
 Global
@@ -3226,6 +3169,9 @@ All portals with triaged subpages
 Portals with no named maintainer
 This page was last edited on 15 July 2024, at 23:17
 (UTC)
+.
+Page was rendered with
+Parsoid
 .
 Text is available under the
 Creative Commons Attribution-ShareAlike 4.0 License
