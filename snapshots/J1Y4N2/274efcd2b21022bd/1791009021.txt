@@ -19,7 +19,9 @@ English
 español
 français
 italiano
+polski
 Türkçe
+Ελληνικά
 русский
 العربية
 Login
@@ -100,7 +102,6 @@ AirRewards
 مساعدة
 مركز المساعدة
 Start Chat
-الهند
 الأسئلة الشائعة حول السفر
 FAQ Source
 Welcome
